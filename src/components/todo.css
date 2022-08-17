@@ -1,0 +1,53 @@
+.Body {
+  background-color: #ccc;
+ width: 500px;
+ margin: 10px auto; 
+display: 'flex';
+
+}
+.Header{
+  text-align: center;
+  color:rgb(49, 48, 48);
+}
+.To_Body{
+min-height: fit-content;
+justify-content: center;
+background-color: #ebe7e7;
+padding: 30px;
+border: 1px rgb(234, 228, 228);
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+border-style: solid solid none;
+}
+.Input_text{
+  outline: none;
+  width: 100%;
+  padding: 7px;
+  border: 1px solid  rgb(192, 191, 191);
+  margin-bottom: 2%;
+}
+
+.Text{
+  text-decoration: line-through;
+    text-decoration-line: line-through;
+    text-decoration-style: solid;
+    text-decoration-color: currentcolor;
+    text-decoration-thickness: auto;
+}
+
+.add_button{
+background-color: #0f116a; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+
+}
+

@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import "./components/todo.css";
+import Header from "./components/Header";
+import Items from "./components/Items";
+import Button from "./components/Button";
+const App = () => {
+  const [todo, setTodo] = useState([
+    { id: 1, task: "Go TO School", isCompleted: true },
+    { id: 2, task: "Go TO Gym", isCompleted: false },
+  ]);
+  const [addTask, setAddTask] = useState();
 
-function App() {
+  const addNewTask = () => {
+    let addNewItems = { task: addTask, isCompleted: false };
+    setTodo([...todo, addNewItems]);
+  };
+  const underline = () => {};
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div div className="Body">
+        <Header setAddTask={setAddTask} addTask={addTask} />
+
+        {todo.map((item) => (
+          <Items
+            id={item.id}
+            title={item.task}
+            isCompleted={item.isCompleted}
+            underline={underline}
+          />
+        ))}
+        <Button addNewTask={addNewTask} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
