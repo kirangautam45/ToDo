@@ -3,7 +3,7 @@ import "./App.css";
 import "./components/todo.css";
 import Header from "./components/Header";
 import Items from "./components/Items";
-import Button from "./components/Button";
+
 const App = () => {
   const [todo, setTodo] = useState([
     { id: 1, task: "Go TO School", isCompleted: true },
@@ -12,26 +12,60 @@ const App = () => {
   const [addTask, setAddTask] = useState();
 
   const addNewTask = () => {
-    let addNewItems = { task: addTask, isCompleted: false };
+    let num = todo.length + 1;
+    let addNewItems = { id: num ,task: addTask, isCompleted: false};
     setTodo([...todo, addNewItems]);
   };
-  const underline = () => {
-    console.log("check box trigger")
+
+  // to insert data on enter
+  const handleKey = (event) => {
+    if (event.key === "Enter") {
+      addNewTask();
+      console.log("Enter")
+    }
   };
+  // action for check box
+  const underLine = (id) => {
+    console.log("check box trigger", id);
+    const todoObject = todo[id];
+
+    const newTodo = {
+      ...todoObject,
+      isCompleted: !todoObject.isCompleted,
+    };
+
+    const elementsBeforeSelectedTodo = todo.slice(0, id);
+    const elementsAfterSelectedTodo = todo.slice(id + 1);
+
+    const newTodos = [
+      ...elementsBeforeSelectedTodo,
+      newTodo,
+      ...elementsAfterSelectedTodo,
+    ];
+
+    setTodo(newTodos);
+  };
+    console.log(todo);
   return (
     <div>
       <div div className="Body">
-        <Header setAddTask={setAddTask} addTask={addTask} />
+        <Header
+          setAddTask={setAddTask}
+          handleKey={handleKey}
+          addTask={addTask}
+        />
 
-        {todo.map((item) => (
+        {todo.map((item, index) => (
           <Items
-            id={item.id}
+            key={item.id}
+            id={index}
             title={item.task}
             isCompleted={item.isCompleted}
-            underline={underline}
+            underLine={underLine}
+            addNewTask={addNewTask}
           />
         ))}
-        <Button addNewTask={addNewTask} />
+        {/* <Button addNewTask={addNewTask} /> */}
       </div>
     </div>
   );

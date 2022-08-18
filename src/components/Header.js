@@ -11,9 +11,10 @@ const Header = (props) => {
           className="Input_text"
           placeholder="Add New Items"
           value={props.addTask}
-          onChange ={(e)=>props.setAddTask(e.target.value)}
-
+          onChange={(e) => props.setAddTask(e.target.value)}
+          onKeyPress={props.handleKey}
         />
+     
       </div>
     </>
   );
