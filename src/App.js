@@ -15,11 +15,12 @@ const App = () => {
     let num = todo.length + 1;
     let addNewItems = { id: num, task: addTask, isCompleted: false };
     setTodo([...todo, addNewItems]);
+    setAddTask([])
   };
 
   // to insert data on enter
   const handleKey = (event) => {
-    console.log(event.key);
+   // console.log(event.key);
     if (event.key === "Enter") {
       addNewTask();
       console.log("Enter");
