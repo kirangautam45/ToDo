@@ -4,9 +4,9 @@ const Button = (props) => {
   
   return (
     <div>
-      <button className="add_button" onClick={props.addNewTask}>
+      {/* <button className="add_button" onClick={props.addNewTask}>
      +
-      </button>
+      </button> */}
     </div>
   );
 };
