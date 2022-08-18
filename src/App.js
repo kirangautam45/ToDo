@@ -15,7 +15,9 @@ const App = () => {
     let addNewItems = { task: addTask, isCompleted: false };
     setTodo([...todo, addNewItems]);
   };
-  const underline = () => {};
+  const underline = () => {
+    console.log("check box trigger")
+  };
   return (
     <div>
       <div div className="Body">
