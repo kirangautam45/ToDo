@@ -14,7 +14,6 @@ const Header = (props) => {
           onChange={(e) => props.setAddTask(e.target.value)}
           onKeyPress={props.handleKey}
         />
-     
       </div>
     </>
   );

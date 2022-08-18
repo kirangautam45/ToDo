@@ -13,15 +13,16 @@ const App = () => {
 
   const addNewTask = () => {
     let num = todo.length + 1;
-    let addNewItems = { id: num ,task: addTask, isCompleted: false};
+    let addNewItems = { id: num, task: addTask, isCompleted: false };
     setTodo([...todo, addNewItems]);
   };
 
   // to insert data on enter
   const handleKey = (event) => {
+    console.log(event.key);
     if (event.key === "Enter") {
       addNewTask();
-      console.log("Enter")
+      console.log("Enter");
     }
   };
   // action for check box
@@ -45,16 +46,15 @@ const App = () => {
 
     setTodo(newTodos);
   };
-    console.log(todo);
+  console.log(todo);
   return (
     <div>
       <div div className="Body">
         <Header
+          addTask={addTask}
           setAddTask={setAddTask}
           handleKey={handleKey}
-          addTask={addTask}
         />
-
         {todo.map((item, index) => (
           <Items
             key={item.id}
